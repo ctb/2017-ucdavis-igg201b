@@ -8,7 +8,7 @@ Contact info: [ctbrown@ucdavis.edu](mailto:ctbrown@ucdavis.edu)
 Labs 1-3 - Basic genomics, read mapping, and variant calling
 ------------------------------------------------------------
 
-More here soon.
+* [Lab 1 instructions](lab1/README.md)
 
 Lab 0 - Monty Hall, computing, Python, and simulations
 ------------------------------------------------------

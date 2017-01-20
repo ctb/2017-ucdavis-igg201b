@@ -13,4 +13,6 @@ More here soon.
 Lab 0 - Monty Hall, computing, Python, and simulations
 ------------------------------------------------------
 
-See [the Monty Hall Jupyter Notebook](lab0/monty-hall.ipynb).
+See [the Monty Hall Jupyter Notebook](lab0/monty-hall.ipynb) and
+[discussion notes](lab0/README.md).
+

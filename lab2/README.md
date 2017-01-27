@@ -31,7 +31,7 @@ Learning objectives:
 
 ## Download data
 
-1. Run::
+1. Run:
 
         curl -O http://dib-training.ucdavis.edu.s3.amazonaws.com/2017-ucdavis-igg201b/SRR2584857.fq.gz
 
@@ -47,6 +47,9 @@ Learning objectives:
         make
 
         sudo cp bwa /usr/local/bin
+        
+        echo 'export PATH=$PATH:/usr/local/bin' >> ~/.bashrc
+        source ~/.bashrc
 
 2. Make & change into a working directory:
 

@@ -35,7 +35,7 @@ Learning objectives:
 
         curl -O http://dib-training.ucdavis.edu.s3.amazonaws.com/2017-ucdavis-igg201b/SRR2584857.fq.gz
 
-## Mapping
+## Map data
 
 1. Run the following commands to install bwa:
 
@@ -72,5 +72,27 @@ Learning objectives:
 6. Observe!
 
         head SRR2584857.sam
+        
+## Visualize mapping
+
+1. Install samtools:
+
+        sudo apt-get -y install samtools
+        
+2. Convert the SAM file into a BAM file:
+
+        samtools import ecoli-rel606.fa.fai SRR2584857.sam SRR2584857.bam
+        
+3. Sort the BAM file by position in genome:
+
+        samtools sort SRR2584857.bam SRR2584857.sorted
+        
+4. Index the BAM file so that we can randomly access it quickly:
+
+        samtools index SRR2584857.sorted.bam
+        
+5. Visualize with 'tview':
+
+        samtools tview SRR2584857.sorted.bam ecoli-rel606.fa
 
 ## REMEMBER TO TURN OFF YOUR EC2 INSTANCE

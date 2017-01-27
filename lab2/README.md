@@ -105,6 +105,8 @@ Learning objectives:
 
 Open up a new Python 3 notebook.
 
+Note, I'll post code as we write it `in this Etherpad <https://public.etherpad-mozilla.org/p/2017-igg201b-lab2>`__.
+
 ### Header matter for the notebook
 
 Place each of the following into the notebook in a different cell,
@@ -145,6 +147,8 @@ into memory:
 
 ```
 !pip install screed
+
+import screed
 references = [ record.sequence for record in screed.open('ecoli-rel606.fa') ]
 ecoli = references[0]
 ```

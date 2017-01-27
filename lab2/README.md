@@ -153,5 +153,13 @@ references = [ record.sequence for record in screed.open('ecoli-rel606.fa') ]
 ecoli = references[0]
 ```
 
+And lastly let's start with a test of the SAM parsing code:
+
+```
+for readname, refname, refpos, readseq in read_samfile('SRR2584857.sam'):
+    print(refname)
+        break
+```
+
 
 ## REMEMBER TO TURN OFF YOUR EC2 INSTANCE

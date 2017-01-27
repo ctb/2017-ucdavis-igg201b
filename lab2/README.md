@@ -63,11 +63,11 @@ Learning objectives:
         
 4. Prepare it for mapping:
 
-        /usr/local/bin/bwa index ecoli-rel606.fa
+        bwa index ecoli-rel606.fa
         
 5. Map!
 
-        /usr/local/bin/bwa mem ecoli-rel606.fa ../SRR2584857_1.fastq.gz > SRR2584857_1.sam
+        bwa mem ecoli-rel606.fa ../SRR2584857_1.fastq.gz > SRR2584857_1.sam
         
 6. Observe!
 

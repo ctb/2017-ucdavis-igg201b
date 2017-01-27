@@ -123,7 +123,7 @@ Now we can call variants using
 [samtools mpileup](http://samtools.sourceforge.net/mpileup.shtml):
 
 ```
-mpileup -uD -f ecoli-rel606.fa SRR2584857.sorted.bam | \
+samtools mpileup -uD -f ecoli-rel606.fa SRR2584857.sorted.bam | \
     bcftools view -bvcg - > variants.raw.bcf
     
 bcftools view variants.raw.bcf > variants.vcf

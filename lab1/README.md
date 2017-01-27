@@ -44,14 +44,14 @@ There's a [nice tutorial](http://www.bioinformatics.babraham.ac.uk/projects/fast
 
 1. Run the following commands to install bwa:
 
-       cd
-       curl -L https://sourceforge.net/projects/bio-bwa/files/bwa-0.7.15.tar.bz2/download > bwa-0.7.15.tar.bz2
+        cd
+        curl -L https://sourceforge.net/projects/bio-bwa/files/bwa-0.7.15.tar.bz2/download > bwa-0.7.15.tar.bz2
 
-       tar xjvf bwa-0.7.15.tar.bz2
-       cd bwa-0.7.15
-       make
+        tar xjvf bwa-0.7.15.tar.bz2
+        cd bwa-0.7.15
+        make
 
-       sudo cp bwa /usr/local/bin
+        sudo cp bwa /usr/local/bin
 
 2. Make & change into a working directory: `mkdir ~/work; cd ~/work`.
 

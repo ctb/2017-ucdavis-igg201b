@@ -17,6 +17,8 @@ Learning objectives:
 
 ## Boot up an Amazon instance
 
+Goal: provide a platform to run stuff on.
+
 1. Boot an AWS m4.large, running image ami-c72d7fa7; you can follow [these instructions](https://2016-feb-aws.readthedocs.io/boot.html).
 
 2. Edit the security group "inbound rules" so that ports 22 and 8000
@@ -31,11 +33,15 @@ Learning objectives:
 
 ## Download data
 
+Goal: get the sequence data!
+
 1. Run:
 
         curl -O http://dib-training.ucdavis.edu.s3.amazonaws.com/2017-ucdavis-igg201b/SRR2584857.fq.gz
 
 ## Map data
+
+Goal: execute a basic mapping
 
 1. Run the following commands to install bwa:
 
@@ -75,6 +81,8 @@ Learning objectives:
         
 ## Visualize mapping
 
+Goal: make it possible to go look at a specific bit of the genome.
+
 1. Install samtools:
 
         sudo apt-get -y install samtools
@@ -107,6 +115,9 @@ Learning objectives:
    * `g ecoli:3931002` will take you to a specific location.
    
 ## Call variants!
+
+Goal: find places where the reads are systematically different from the
+genome.
    
 Now we can call variants using
 [samtools mpileup](http://samtools.sourceforge.net/mpileup.shtml):

@@ -1,5 +1,7 @@
 # Lab 1
 
+Next lab: [Lab 2](../lab2/README.md)
+
 ## Boot up an Amazon instance
 
 1. Boot an AWS m4.large, running image ami-c72d7fa7; you can follow [these instructions](https://2016-feb-aws.readthedocs.io/boot.html).

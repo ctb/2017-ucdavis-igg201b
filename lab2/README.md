@@ -2,7 +2,7 @@
 
 1/27/17, Titus Brown
 
-Follows from [../lab1/README.md](Lab 1).
+Follows from [Lab 1](../lab1/README.md).
 
 Learning objectives:
 

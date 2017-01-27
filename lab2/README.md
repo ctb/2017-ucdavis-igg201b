@@ -79,19 +79,23 @@ Learning objectives:
 
         sudo apt-get -y install samtools
         
-2. Convert the SAM file into a BAM file:
+2. Index the reference genome:
+
+        samtools faidx ecoli-rel606.fa
+        
+3. Convert the SAM file into a BAM file:
 
         samtools import ecoli-rel606.fa.fai SRR2584857.sam SRR2584857.bam
         
-3. Sort the BAM file by position in genome:
+4. Sort the BAM file by position in genome:
 
         samtools sort SRR2584857.bam SRR2584857.sorted
         
-4. Index the BAM file so that we can randomly access it quickly:
+5. Index the BAM file so that we can randomly access it quickly:
 
         samtools index SRR2584857.sorted.bam
         
-5. Visualize with `tview`:
+6. Visualize with `tview`:
 
         samtools tview SRR2584857.sorted.bam ecoli-rel606.fa
         
@@ -100,6 +104,7 @@ Learning objectives:
    * left and right arrows scroll
    * `q` to quit
    * CTRL-h and CTRL-l do "big" scrolls
+   * `g ecoli:position` will take you to a specific location.
 
 ## Build our own variant caller!
 

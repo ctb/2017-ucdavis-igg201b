@@ -13,7 +13,7 @@ Learning objectives:
 
 * understand the basics of mapping-based variant calling;
 
-* (maybe) visualize mapping
+* learn basics of actually calling variants & visualizing.
 
 ## Boot up an Amazon instance
 

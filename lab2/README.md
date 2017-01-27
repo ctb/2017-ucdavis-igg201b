@@ -73,7 +73,7 @@ Goal: execute a basic mapping
         
 5. Map!
 
-        bwa mem -t 4 -O 0 ecoli-rel606.fa ../SRR2584857.fq.gz > SRR2584857.sam
+        bwa mem -t 4 ecoli-rel606.fa ../SRR2584857.fq.gz > SRR2584857.sam
         
 6. Observe!
 
@@ -128,5 +128,12 @@ mpileup -uD -f ecoli-rel606.fa SRR2584857.sorted.bam | \
     
 bcftools view variants.raw.bcf > variants.vcf
 ```
+
+## Discussion points / extra things to cover
+
+* What are the drawbacks to mapping-based variant calling? What are
+  the positives?
+
+* Where do reference genomes come from?
 
 ## REMEMBER TO TURN OFF YOUR EC2 INSTANCE

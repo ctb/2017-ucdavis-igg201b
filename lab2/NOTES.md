@@ -13,6 +13,8 @@ Thoughts:
     no easy way to get a summary.
   * mapping uses heuristics that may be approximate (true in general)
   
+  How big a problem are this? (How would we know? :)
+  
 * other things to point out & discuss:
 
   * we'll talk about assembly during a different set of 3 labs

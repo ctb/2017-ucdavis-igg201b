@@ -91,8 +91,59 @@ Learning objectives:
 
         samtools index SRR2584857.sorted.bam
         
-5. Visualize with 'tview':
+5. Visualize with `tview`:
 
         samtools tview SRR2584857.sorted.bam ecoli-rel606.fa
+        
+   `tview` commands of relevance:
+   
+   * left and right arrows scroll
+   * `q` to quit
+   * CTRL-h and CTRL-l do "big" scrolls
+
+## Build our own variant caller!
+
+Open up a new Python 3 notebook.
+
+### Header matter
+
+Place yourself in the working directory:
+```
+cd ~/work
+```
+
+Enable plotting, import plotting libraries
+
+```
+%matplotlib inline
+import pylab, numpy
+
+Write a small SAM parsing function:
+```
+def read_samfile(filename):
+    for line in open(filename):
+        if line.startswith('@'):
+            continue
+        line = line.split('\t')
+        readname = line[0]
+        refname = line[2]
+        refpos = int(line[3])
+        readseq = line[9]
+        
+        if refname == '*':
+            continue
+        
+        yield readname, refname, refpos, readseq
+```
+
+Install 'screed', a FASTA/FASTQ reader, and read the reference genome
+into memory:
+
+```
+!pip install screed
+references = [ record.sequence for record in screed.open('ecoli-rel606.fa') ]
+ecoli = references[0]
+```
+
 
 ## REMEMBER TO TURN OFF YOUR EC2 INSTANCE

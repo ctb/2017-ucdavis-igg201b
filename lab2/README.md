@@ -67,10 +67,10 @@ Learning objectives:
         
 5. Map!
 
-        bwa mem ecoli-rel606.fa ../SRR2584857_1.fastq.gz > SRR2584857_1.sam
+        bwa mem -t 4 ecoli-rel606.fa ../SRR2584857.fq.gz > SRR2584857.sam
         
 6. Observe!
 
-        head SRR2584857_1.sam
+        head SRR2584857.sam
 
 ## REMEMBER TO TURN OFF YOUR EC2 INSTANCE

@@ -67,7 +67,7 @@ Learning objectives:
         
 5. Map!
 
-        bwa mem -t 4 ecoli-rel606.fa ../SRR2584857.fq.gz > SRR2584857.sam
+        bwa mem -t 4 -O 0 ecoli-rel606.fa ../SRR2584857.fq.gz > SRR2584857.sam
         
 6. Observe!
 
@@ -104,67 +104,18 @@ Learning objectives:
    * left and right arrows scroll
    * `q` to quit
    * CTRL-h and CTRL-l do "big" scrolls
-   * `g ecoli:position` will take you to a specific location.
-
-## Build our own variant caller!
-
-Open up a new Python 3 notebook.
-
-Note, I'll post code as we write it `in this Etherpad <https://public.etherpad-mozilla.org/p/2017-igg201b-lab2>`__.
-
-### Header matter for the notebook
-
-Place each of the following into the notebook in a different cell,
-running each one with 'Shift-ENTER'.
-
-Move to the working directory:
-```
-cd ~/work
-```
-
-Enable plotting, import plotting libraries
+   * `g ecoli:3931002` will take you to a specific location.
+   
+## Call variants!
+   
+Now we can call variants using
+[samtools mpileup](http://samtools.sourceforge.net/mpileup.shtml):
 
 ```
-%matplotlib inline
-import pylab, numpy
+mpileup -uD -f ecoli-rel606.fa SRR2584857.sorted.bam | \
+    bcftools view -bvcg - > variants.raw.bcf
+    
+bcftools view variants.raw.bcf > variants.vcf
 ```
-
-Write a small SAM parsing function:
-```
-def read_samfile(filename):
-    for line in open(filename):
-        if line.startswith('@'):
-            continue
-        line = line.split('\t')
-        readname = line[0]
-        refname = line[2]
-        refpos = int(line[3])
-        readseq = line[9]
-        
-        if refname == '*':
-            continue
-        
-        yield readname, refname, refpos, readseq
-```
-
-Install 'screed', a FASTA/FASTQ reader, and read the reference genome
-into memory:
-
-```
-!pip install screed
-
-import screed
-references = [ record.sequence for record in screed.open('ecoli-rel606.fa') ]
-ecoli = references[0]
-```
-
-And lastly let's start with a test of the SAM parsing code:
-
-```
-for readname, refname, refpos, readseq in read_samfile('SRR2584857.sam'):
-    print(refname)
-        break
-```
-
 
 ## REMEMBER TO TURN OFF YOUR EC2 INSTANCE

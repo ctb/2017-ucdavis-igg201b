@@ -44,43 +44,4 @@
    
 There's a [nice tutorial](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/) on the FastQC web site for those who are interested in more.
 
-## Mapping
-
-1. Run the following commands to install bwa:
-
-        cd
-        curl -L https://sourceforge.net/projects/bio-bwa/files/bwa-0.7.15.tar.bz2/download > bwa-0.7.15.tar.bz2
-
-        tar xjvf bwa-0.7.15.tar.bz2
-        cd bwa-0.7.15
-        make
-
-        sudo cp bwa /usr/local/bin
-
-2. Make & change into a working directory:
-
-        mkdir ~/work;
-        cd ~/work
-
-3. Copy and gunzip the reference:
-
-        cp ~/2017-ucdavis-igg201b/lab1/ecoli-rel606.fa.gz .
-        gunzip ecoli-rel606.fa.gz
-        
-4. Prepare it for mapping:
-
-        /usr/local/bin/bwa index ecoli-rel606.fa
-        
-5. Map!
-
-        /usr/local/bin/bwa aln ecoli-rel606.fa ../SRR2584857_1.fastq.gz > SRR2584857_1.sai
-        
-6. Convert!
-
-        /usr/local/bin/bwa samse ecoli-rel606.fa SRR2584857_1.sai ../SRR2584857_1.fastq.gz > SRR2584857_1.sam
-
-6. Observe!
-
-        head SRR2584857_1.sam
-
 ## REMEMBER TO TURN OFF YOUR EC2 INSTANCE

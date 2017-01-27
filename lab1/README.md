@@ -24,11 +24,15 @@
 
 4. Wait for it to download.  Notice how the file appears in the Jupyter console.
 
-5. Run `gunzip -c SRR2584857_1.fastq.gz | head`. Marvel at the FASTQ.
+5. Run
+
+        gunzip -c SRR2584857_1.fastq.gz | head
+        
+   Marvel at the FASTQ.
 
 6. Install [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/):
 
-       sudo apt-get -y install fastqc openjdk-8-jre
+        sudo apt-get -y install fastqc openjdk-8-jre
        
 7. Run FastQC:
 
@@ -53,7 +57,10 @@ There's a [nice tutorial](http://www.bioinformatics.babraham.ac.uk/projects/fast
 
         sudo cp bwa /usr/local/bin
 
-2. Make & change into a working directory: `mkdir ~/work; cd ~/work`.
+2. Make & change into a working directory:
+
+        mkdir ~/work;
+        cd ~/work
 
 3. Copy and gunzip the reference:
 

@@ -105,9 +105,12 @@ Learning objectives:
 
 Open up a new Python 3 notebook.
 
-### Header matter
+### Header matter for the notebook
 
-Place yourself in the working directory:
+Place each of the following into the notebook in a different cell,
+running each one with 'Shift-ENTER'.
+
+Move to the working directory:
 ```
 cd ~/work
 ```
@@ -117,6 +120,7 @@ Enable plotting, import plotting libraries
 ```
 %matplotlib inline
 import pylab, numpy
+```
 
 Write a small SAM parsing function:
 ```

@@ -148,8 +148,11 @@ for f, start, stop, strand, info in read_gff3('ecoli-rel606.gff.gz'):
 
         cd ~/work
         
+3. Run bedtools intersect:
+
+        bedtools intersect -a ecoli-rel606.gff.gz -b variants.vcf -wa -u
         
-3. Run bedtools XXX
+   [Documentation for bedtools intersect](https://bedtools.readthedocs.io/en/latest/content/tools/intersect.html)
 
 ## Compare bedtools and Python.
 
@@ -162,5 +165,6 @@ for f, start, stop, strand, info in read_gff3('ecoli-rel606.gff.gz'):
 1. Execute:
 
         samtools view SRR2584857.sorted.bam 'ecoli:920514-920514' > out.bam
+        wc out.bam
         
 and this will give you the coverage of the relevant position.

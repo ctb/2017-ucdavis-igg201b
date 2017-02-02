@@ -68,4 +68,40 @@ Goal: get the outputs from lab 2, so we don't need to run all that stuff again!
    
 ## Parse the GFF3 file.
 
-1. 
+1. At the command line, copy in the GFF annotation of E. coli rel 606.
+
+        cp ~/2017-ucdavis-igg201b/lab3/ecoli-rel606.gff.gz .
+
+2. Start a new Python 3 notebook.
+
+3. In a cell, write:
+
+        cd work
+
+   and use 'shift-ENTER' to execute.
+
+3. Run (in a new cell, with Shift-ENTER):
+
+        !gunzip -c ecoli-rel606.gff.gz | head
+        
+   Note, here you are executing a shell command from within Jupyter Notebook.
+   
+4. Write a short GFF3 parser:
+
+```
+import gzip
+
+def read_gff3(filename):
+    for line in gzip.open(filename, 'rt', encoding='utf-8'):
+        if line.startswith('#'): continue   # GFF comment; skip!
+        line = line.split('\t')
+
+        feature_type, start, stop, _, strand, _, info = line[2:9]
+
+        # we want 'gene'
+        if feature_type != 'gene':
+            continue
+
+        start, stop = int(start), int(stop)
+        yield feature_type, start, stop, strand, info
+```

@@ -66,5 +66,6 @@ Goal: get the outputs from lab 2, so we don't need to run all that stuff again!
         
    'q' to quit, left arrow to scroll a bit left.
    
+## Parse the GFF3 file.
 
-
+1. 

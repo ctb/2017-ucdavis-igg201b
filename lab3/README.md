@@ -52,7 +52,7 @@ Goal: get the outputs from lab 2, so we don't need to run all that stuff again!
 
    (Use 'q' to exit the viewer)
    
-## Look at the VCF file.
+## Look at the VCF file with Python.
 
 1. Look at the non-commented lines:
 
@@ -105,3 +105,62 @@ def read_gff3(filename):
         start, stop = int(start), int(stop)
         yield feature_type, start, stop, strand, info
 ```
+
+5. Try running it:
+
+```
+for f, start, stop, strand, info in read_gff3('ecoli-rel606.gff.gz'):
+    print(f, start, stop, strand, info)
+    break
+```
+
+6. Take one of the variants and see if we can find it in a gene:
+
+```
+# interrogate a particular position
+variant_pos = 3931002
+
+for f, start, stop, strand, info in read_gff3('ecoli-rel606.gff.gz'):
+    if variant_pos >= start and variant_pos <= stop:
+        print(f, start, stop, strand, info)
+```
+
+7. Discuss:
+
+   * what happens if `variant_pos = 920514`? Is there a way to deal with this?
+   * efficiency of this approach vs indexing approaches :)
+
+## Look at the VCF file with bedtools.
+
+[bedtools docs](https://bedtools.readthedocs.io/en/latest/)
+
+1. Download and build bedtools:
+
+        cd ~/
+        curl -O -L https://github.com/arq5x/bedtools2/releases/download/v2.26.0/bedtools-2.26.0.tar.gz
+        tar xzf bedtools-2.26.0.tar.gz
+        
+        cd bedtools2
+        make
+        sudo make install
+        
+2. Go back to work:
+
+        cd ~/work
+        
+        
+3. Run bedtools XXX
+
+## Compare bedtools and Python.
+
+* Python is programmable and customizable.
+* Bedtools is fast, general, well supported, less likely to be erroneous.
+* Use both :)
+
+## Extract reads with samtools.
+
+1. Execute:
+
+        samtools view SRR2584857.sorted.bam 'ecoli:920514-920514' > out.bam
+        
+and this will give you the coverage of the relevant position.

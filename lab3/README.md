@@ -8,7 +8,7 @@ Learning objectives:
 
 * understand the output of variant calling / VCF files.
 
-* compare Python and bedtools approaches to analyzing variant locations.
+* compare using roll-your-own Python code vs Python libraries vs command-line programs for analyzing variant locations.
 
 ## Boot up an Amazon instance
 
@@ -41,32 +41,42 @@ Goal: get the outputs from lab 2, so we don't need to run all that stuff again!
         mkdir ~/work
         cd ~/work
         curl -O https://s3-us-west-1.amazonaws.com/dib-training.ucdavis.edu/2017-ucdavis-igg201b/SRR2584857-bam%2Bvcf.tar.gz
-    
+
 2. Unpack the files:
 
-        tar xzf SRR2584857-bam%2Bvcf.tar.gz
-    
+        tar -xzf SRR2584857-bam%2Bvcf.tar.gz
+
 3. Verify that you can run 'samtools tview':
 
         samtools tview SRR2584857.sorted.bam ecoli-rel606.fa
 
    (Use 'q' to exit the viewer)
-   
+
 ## Look at the VCF file with Python.
+
+The [official VCF specification](https://samtools.github.io/hts-specs/VCFv4.1.pdf) is a great read...if you're suffering from insomnia.
+Let's skip this and just take a quick look at the file.
 
 1. Look at the non-commented lines:
 
         grep -v ^# variants.vcf
-        
-   The first five columns: `CHROM  POS     ID      REF     ALT`
-   
-2. Examine one with tview:
+
+   The first five columns: `CHROM  POS     ID      REF     ALT`.
+   It's a little easier to see if you run
+
+        grep -v ^# variants.vcf | less -S
+
+    Use your left and right arrows to scroll, and 'q' to quit.
+
+2. Examine one of the variants with tview:
 
         samtools tview SRR2584857.sorted.bam ecoli-rel606.fa -p ecoli:920514
-        
+
    'q' to quit, left arrow to scroll a bit left.
-   
+
 ## Parse the GFF3 file.
+
+The GFF3 format also has a [technical specification](https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md), but we can skip this for now too and just take a look at the data.
 
 1. At the command line, copy in the GFF annotation of E. coli rel 606.
 
@@ -83,9 +93,9 @@ Goal: get the outputs from lab 2, so we don't need to run all that stuff again!
 3. Run (in a new cell, with Shift-ENTER):
 
         !gunzip -c ecoli-rel606.gff.gz | head
-        
+
    Note, here you are executing a shell command from within Jupyter Notebook.
-   
+
 4. Write a short GFF3 parser:
 
 ```
@@ -127,8 +137,31 @@ for f, start, stop, strand, info in read_gff3('ecoli-rel606.gff.gz'):
 
 7. Discuss:
 
-   * what happens if `variant_pos = 920514`? Is there a way to deal with this?
-   * efficiency of this approach vs indexing approaches :)
+   * What happens if you set `variant_pos = 920514`?
+     Can you explain this result?
+     Is there anything you could change to get a more interesting result?
+   * Efficiency of this approach vs indexing approaches :)
+
+## Parse GFF3 with a library
+
+1. Install the `tag` library.
+
+```
+!pip install tag
+import tag
+```
+
+2. Reproduce the previous task using library commands.
+
+```python
+reader = tag.GFF3Reader(infilename='ecoli-rel606.gff.gz')
+for gene in tag.select.features(reader, type='gene'):
+    if gene.contains_point(3931002):
+        print(gene.slug)
+```
+
+Most libraries like tag come with some kind of documentation.
+The tag documentation is at http://tag.readthedocs.io/en/stable/index.html (API documentation at http://tag.readthedocs.io/en/stable/api.html).
 
 ## Look at the VCF file with bedtools.
 
@@ -138,33 +171,34 @@ for f, start, stop, strand, info in read_gff3('ecoli-rel606.gff.gz'):
 
         cd ~/
         curl -O -L https://github.com/arq5x/bedtools2/releases/download/v2.26.0/bedtools-2.26.0.tar.gz
-        tar xzf bedtools-2.26.0.tar.gz
-        
+        tar -xzf bedtools-2.26.0.tar.gz
+
         cd bedtools2
         make
         sudo make install
-        
+
 2. Go back to work:
 
         cd ~/work
-        
+
 3. Run bedtools intersect:
 
         bedtools intersect -a ecoli-rel606.gff.gz -b variants.vcf -wa -u
-        
+
    [Documentation for bedtools intersect](https://bedtools.readthedocs.io/en/latest/content/tools/intersect.html)
 
 ## Compare bedtools and Python.
 
-* Python is programmable and customizable.
+* Writing your own Python code is flexible and customizable.
+* Python libraries can save you lots of work, but can also have a learning curve.
 * Bedtools is fast, general, well supported, less likely to be erroneous.
-* Use both :)
+* Use all three :)
 
 ## Extract reads with samtools.
 
 1. Execute:
 
         samtools view SRR2584857.sorted.bam 'ecoli:920514-920514' > out.bam
-        wc out.bam
-        
+        wc -l out.bam
+
 and this will give you the coverage of the relevant position.

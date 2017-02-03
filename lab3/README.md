@@ -26,7 +26,7 @@ Goal: provide a platform to run stuff on.
 
 5. Run:
 
-        git clone https://github.com/ctb/2017-ucdavis-igg201b.git`
+        git clone https://github.com/ctb/2017-ucdavis-igg201b.git
 
 6. Install samtools:
 

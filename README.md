@@ -5,6 +5,11 @@ of the IGG 201(b) course at UC Davis.
 
 Contact info: [ctbrown@ucdavis.edu](mailto:ctbrown@ucdavis.edu)
 
+Labs 4-6 - Assembly!
+--------------------
+
+* [Lab 4 instructions](lab4/README.md)
+
 Labs 1-3 - Basic genomics, read mapping, and variant calling
 ------------------------------------------------------------
 

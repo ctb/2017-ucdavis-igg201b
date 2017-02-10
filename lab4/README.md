@@ -24,6 +24,8 @@ Questions:
 
 * what are strategies for verifying the results?
 
+* is it helpful that the "reads" are sorted?
+
 ## Part II: running an assembler
 
 ### Start up an AWS instance

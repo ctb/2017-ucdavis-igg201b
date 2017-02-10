@@ -114,3 +114,7 @@ Run QUAST on your assembly:
 
 Now, in the browser, go look at `work/ecoli_report/report.txt`.
 This contains a set of summary stats. Are they good?
+
+## End of days
+
+Question: why so many contigs?!

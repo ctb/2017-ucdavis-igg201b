@@ -1,38 +1,14 @@
-# Lab 4 - Assembly!
-
-"Where do genomes come from, mommy?"
+# Lab 5 - Assembling and evaluating microbial genomes
 
 Learning objectives:
 
-* understand the primary techniques used for de novo sequence assembly.
-
 * run a simple sequence assembly.
 
-## Part 1: assembly, by hand
+* evaluate it.
 
-Split up into groups of 3-6 people; see sheets of paper.
+* annotate it.
 
-Rules:
-
-* no googling!
-
-Questions:
-
-* think about strategy; how would you do this for 10x, or 100x, the data?
-
-* does this get easier, or harder, with more people in a group?
-
-* what are strategies for verifying the results?
-
-* is it helpful that the "reads" are sorted?
-
-* what is the benefit of "paired end" reads?
-
-* what is the benefit of longer reads?
-
-* how problematic are errors in the reads?
-
-## Part II: running an assembler
+## Part I: running an assembler
 
 ### Start up an AWS instance
 
@@ -123,6 +99,83 @@ Run QUAST on your assembly:
 Now, in the browser, go look at `work/ecoli_report/report.txt`.
 This contains a set of summary stats. Are they good?
 
-## End of days
+## Some thoughts and questions
 
-Question: why so many contigs?!
+Question: why are there so many contigs?!
+
+What is N50, and why is that the metric we use?  (vs NG50)
+
+How might we evaluate the quality (...qualities) of this assembly?
+
+## Part II: Mapping.
+
+1. Run the following commands to install bwa:
+
+        cd
+        curl -L https://sourceforge.net/projects/bio-bwa/files/bwa-0.7.15.tar.bz2/download > bwa-0.7.15.tar.bz2
+
+        tar xjvf bwa-0.7.15.tar.bz2
+        cd bwa-0.7.15
+        make
+
+        sudo cp bwa /usr/local/bin
+        
+        echo 'export PATH=$PATH:/usr/local/bin' >> ~/.bashrc
+        source ~/.bashrc
+
+2. We will also need `khmer` (see [khmer docs](khmer.readthedocs.io)) and `samtools`.
+
+        pip install khmer==2.0
+        sudo apt-get -y install samtools
+
+3. Split the reads:
+
+        gunzip -c ecoli_ref-5m.fastq.gz | head -1000000 | 
+             split-paired-reads.py -1 head.1 -2 head.2 
+             
+4. Map the reads:
+
+        bwa index ecoli-assembly.fa 
+        bwa aln ecoli-assembly.fa head.1 > head.1.sai 
+        bwa aln ecoli-assembly.fa head.2 > head.2.sai 
+        bwa sampe ecoli-assembly.fa head.1.sai head.2.sai head.1 head.2 > head.sam
+        
+5. Convert to BAM:
+
+        samtools import ecoli-assembly.fai head.sam head.bam
+        samtools sort head.bam head.sorted
+        samtools index head.sorted.bam
+
+6. Ask how many reads didn't align to the assembly:
+
+        samtools view -c -f 4 head.sorted.bam
+
+7. Ask how many reads **did** align to the assembly:
+
+        samtools view -c -F 4 head.sorted.bam
+
+### Questions:
+
+Why would reads **not** align to the assembly?
+
+(Cue extended rant by CTB on heuristics.)
+
+## Part III: BLASTing
+
+1. Install NCBI BLAST+:
+
+        sudo apt-get -y install ncbi-blast+
+
+2. Make the assembly BLAST-able:
+
+        makeblastdb -dbtype nucl -in ecoli-assembly.fa
+        
+3. Grab an E. coli gene:
+
+        curl -O http://www.uniprot.org/uniprot/P0ACJ8.fasta 
+
+4. BLAST!
+
+        tblastn -query P0ACJ8.fasta -db ecoli-assembly.fa
+        
+Do we see a reasonable match?

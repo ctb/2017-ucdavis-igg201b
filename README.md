@@ -9,6 +9,7 @@ Labs 4-6 - Assembly!
 --------------------
 
 * [Lab 4 instructions](lab4/README.md)
+* [Lab 5 instructions](lab5/README.md)
 
 Labs 1-3 - Basic genomics, read mapping, and variant calling
 ------------------------------------------------------------

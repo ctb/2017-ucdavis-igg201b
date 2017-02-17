@@ -130,6 +130,7 @@ How might we evaluate the quality (...qualities) of this assembly?
 
 3. Split the reads:
 
+        cd ~/work
         gunzip -c ecoli_ref-5m.fastq.gz | head -1000000 | 
              split-paired-reads.py -1 head.1 -2 head.2 
              

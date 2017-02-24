@@ -3,7 +3,7 @@
 Due Thursday, Mar 2nd, 5pm.
 
 To turn in, e-mail the link to the github repo to Titus at
-ctbrown@ucdavis.edu
+[ctbrown@ucdavis.edu](mailto:ctbrown@ucdavis.edu).
 
 ## Task: Quality trim reads before assembling them.
 
@@ -26,17 +26,15 @@ For the HW,
 
 1. Download the same 5m E. coli reads as before.
 
-2. Use Trimmomatic to quality filter them with the following parameters:
-
-        ...
-        
-   (See appendix of this HW for instructions on running Trimmomatic.)
+2. Use Trimmomatic to quality filter them with parameters at the bottom of this
+   page.
 
 3. Run the MEGAHIT assembler on the resulting quality-filtered reads; be sure
    to include the single-ended reads that were trimmed by Trimmomatic.
 
 4. Use Quast to evaluate the assembly, and compare against the results
-   from the previous assembly (without quality filtering).
+   from the previous assembly (without quality filtering) - see bottom
+   of this page for the stats I got when running the lab.
    
 One mildly tricky bit will be to split the paired-end reads in the E. coli
 data download into two files containing single-ended reads, which is what
@@ -58,7 +56,7 @@ upload the text file of commands to that repo as 'trim-and-assemble.txt'.
 Put a sentence or two about results and conclusions of the comparison at
 the bottom of that file.
 
-Then send Titus the URL of the text file on github at [ctbrown@ucdavis.edu](mailto:ctbrown@ucdavis.edu)
+Then send Titus the URL of the text file on github at [ctbrown@ucdavis.edu](mailto:ctbrown@ucdavis.edu).
 
 ## Appendix: running Trimmomatic
 

@@ -22,6 +22,10 @@ examples of each.)
 
 ## 2. Experience some GitHub.
 
+GitHub is a place to put files for public (or private) consumption, and
+to work with and edit them.  We'll talk more about that in the next
+few weeks.
+
 0. Start up a new cloud instance (as usual; see [lab 5](../lab5/README.md)).
 
 1. Go to http://github.com/ and log in.
@@ -53,6 +57,10 @@ examples of each.)
    followed by
    
         cat <filename.txt>
+        
+   Cool, eh?
+        
+7. On the Web interface, take a look at "history".
 
 ## 3. Read manipulation
 

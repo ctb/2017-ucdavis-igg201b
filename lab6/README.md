@@ -11,7 +11,7 @@ Learning objectives:
 ## 1. Assembly vs mapping
 
 Up front question: if you recall, last week, we got 117 contigs. Why?
-Why didn't the 
+Why didn't the assembler connect them all?
 
 Broadly speaking, where does assembly fail?
 

@@ -12,7 +12,7 @@ Labs 4-6 - Assembly!
 * [Lab 5 instructions](lab5/README.md)
 * [Lab 6 instructions](lab6/README.md)
 
-* [HW 2](hw2/README.md)
+[HW 2](hw2/README.md)
 
 Labs 1-3 - Basic genomics, read mapping, and variant calling
 ------------------------------------------------------------
@@ -21,7 +21,7 @@ Labs 1-3 - Basic genomics, read mapping, and variant calling
 * [Lab 2 instructions](lab2/README.md)
 * [Lab 3 instructions](lab3/README.md)
 
-* [HW 1](hw1/README.md)
+[HW 1](hw1/README.md)
 
 Lab 0 - Monty Hall, computing, Python, and simulations
 ------------------------------------------------------

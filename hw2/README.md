@@ -9,7 +9,14 @@ ctbrown@ucdavis.edu
 
 In [lab 5](../lab5/README.md), we downloaded 5m E. coli reads,
 assembled them using megahit, and then used Quast to get some
-assembly metrics.
+assembly metrics.  But we didn't do *any* quality filtering on the
+reads, so the reads may contain a bunch of adapters and erroneous
+bases! What happens to the assembly if we do some minimally responsible
+quality filtering?
+
+Let's use
+[Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic) to find
+out!
 
 For the HW,
 

@@ -72,7 +72,7 @@ Then send Titus the URL of the text file on github at [ctbrown@ucdavis.edu](mail
    `<xyz>` with the appropriate inputs and outputs.
 
         TrimmomaticPE <r1 input read file> <r2 input read file> \
-            <out-r1> <out-r2> <orphan1> <orphan2> \
+            <out-r1> <orphan1> out-r2> <orphan2> \
             ILLUMINACLIP:TruSeq3-PE.fa:2:40:15 \
             LEADING:2 TRAILING:2 \
             SLIDINGWINDOW:4:2 \

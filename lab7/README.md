@@ -69,4 +69,5 @@ Learning objectives:
         Rscript --no-save ~/2017-ucdavis-igg201b/lab7/yeast.salmon.R
         
    This will produce two files, `yeast-edgeR-MA-plot.pdf` and
-   `yeast-edgeR-MDS.pdf`.
+   `yeast-edgeR-MDS.pdf`. You can view them by going to your Jupyter
+   console and looking in the directory `yeast`.

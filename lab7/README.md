@@ -32,7 +32,7 @@ Learning objectives:
         mkdir yeast
         cd yeast
         
-5. Download some data:
+5. Download some data from [Schurch et al, 2016](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4878611/):
 
         curl -O ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR458/ERR458500/ERR458500.fastq.gz
         curl -O ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR458/ERR458501/ERR458501.fastq.gz
@@ -54,7 +54,9 @@ Learning objectives:
             salmon quant -i yeast_orfs --libType U -r $i -o $i.quant --seqBias --gcBias
         done
         
-   (What do you think all this stuff with the bias is about?)
+   What do you think all this stuff with the bias is about?
+   
+   Read up on [libtype, here](https://salmon.readthedocs.io/en/latest/salmon.html#what-s-this-libtype)
         
 9. Collect all of the sample counts:
 

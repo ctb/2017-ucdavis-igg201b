@@ -1,9 +1,14 @@
 # 2017-ucdavis-igg201b
 
 This is the master repository for Titus's labs, for the 2017 incarnation
-of the IGG 201(b) course at UC Davis.
+of the GGG 201(b) course at UC Davis.
 
 Contact info: [ctbrown@ucdavis.edu](mailto:ctbrown@ucdavis.edu)
+
+Labs 7-9 - RNAseq!
+------------------
+
+* [Lab 7 instructions](lab7/README.md)
 
 Labs 4-6 - Assembly!
 --------------------

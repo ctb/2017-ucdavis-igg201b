@@ -13,7 +13,7 @@ Learning objectives:
    
 1. Connect to Terminal. Run `bash`.
 
-2. Install edgeR:
+2. Install edgeR using [this script](https://github.com/ctb/2017-ucdavis-igg201b/blob/master/lab7/install-edgeR.R):
 
         cd
         git clone https://github.com/ctb/2017-ucdavis-igg201b.git
@@ -56,15 +56,15 @@ Learning objectives:
         
    What do you think all this stuff with the bias is about?
    
-   Read up on [libtype, here](https://salmon.readthedocs.io/en/latest/salmon.html#what-s-this-libtype)
+   Read up on [libtype, here](https://salmon.readthedocs.io/en/latest/salmon.html#what-s-this-libtype).
         
-9. Collect all of the sample counts:
+9. Collect all of the sample counts using [this Python script](https://github.com/ngs-docs/2016-aug-nonmodel-rnaseq/blob/master/files/gather-counts.py):
 
         curl -L -O https://github.com/ngs-docs/2016-aug-nonmodel-rnaseq/raw/master/files/gather-counts.py
         python2 gather-counts.py
 
 
-10. Run edgeR (in R) and take a look at the output:
+10. Run edgeR (in R) using [this script](https://github.com/ctb/2017-ucdavis-igg201b/blob/master/lab7/yeast.salmon.R) and take a look at the output:
 
         Rscript --no-save ~/2017-ucdavis-igg201b/lab7/yeast.salmon.R
         

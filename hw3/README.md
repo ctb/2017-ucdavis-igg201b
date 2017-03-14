@@ -13,7 +13,7 @@ To turn in, e-mail a link to the script on github to Titus at
 
 * win!
 
-## Task: add at least two more `wt` and two `mut` data sets to the [lab 8]()../lab8/README.rst) differential expression analysis.
+## Task: add at least two more `wt` and two `mut` data sets to the lab8 analysis.
 
 In [lab 8](../lab8/README.md), we downloaded 6 SRA records from the [Schurch et al., 2016](http://rnajournal.cshlp.org/content/22/6/839) paper.  Take four more (two `mut`, two `wt`) from their spreadsheet at
 
@@ -49,3 +49,31 @@ Put a sentence or two about results and conclusions of the comparison at
 the bottom of that file.
 
 Then send Titus the URL of the text file on github at [ctbrown@ucdavis.edu](mailto:ctbrown@ucdavis.edu) with 'HW3' in the subject line.
+
+## Appendix: updating `yeast.salmon.R`
+
+Here are the lines I updated to add two new data sets into the R analysis script between lab 7 and lab 8.  The lines starting with `<` were removed and the lines starting with `>` were added; changed lines are both "removed" and "added."
+
+```
+5a6
+> "ERR458495.fastq.gz.quant.counts",
+7c8,9
+< "ERR458501.fastq.gz.quant.counts"
+---
+> "ERR458501.fastq.gz.quant.counts",
+> "ERR458502.fastq.gz.quant.counts"
+10c12
+< labels=c("A", "B", "C", "D")
+---
+> labels=c("A", "B", "E", "C", "D", "F")
+18c20
+< group <- c(rep("I",2), rep("II",2))
+---
+> group <- c(rep("mut", 3), rep("wt", 3))
+26c28
+< et <- exactTest(dge, pair=c("I", "II"))
+---
+> et <- exactTest(dge, pair=c("wt", "mut"))
+```
+
+These are roughly the same lines you'll need to update for this HW.

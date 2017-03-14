@@ -1,0 +1,15 @@
+@CTB: upload data somewhere?
+@meditate on kallisto etc alignment free approach
+(Show how to download accession numbers, and find the data.)
+
+http://downloads.yeastgenome.org/sequence/S288C_reference/orf_dna/orf_dna.README
+
+bring coins to flip
+
+go over the steps we did, data conversions etc.
+go over stats, etc; talk about MA plot
+explain logFC, CPM plot
+go over CSV, how to extract genes of interest, set thresholds
+talk about python, R, and shell
+
+

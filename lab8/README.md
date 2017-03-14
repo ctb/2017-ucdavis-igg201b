@@ -2,9 +2,11 @@
 
 Learning objectives:
 
-1. Dig into some statistics.
+1. Dig into some statistical thoughts.
 
-## Preamble: your basic RNAseq analysis, slightly larger than before
+2. Think about the pipeline, and maybe the github.
+
+## Running a slightly larger RNAseq analysis than before.
 
 0. Start up a new cloud instance (as usual; see [lab 5](../lab5/README.md)).
    (m4.large is probably fine for this.)
@@ -65,10 +67,38 @@ Learning objectives:
         python2 gather-counts.py
 
 
-10. Run edgeR (in R) using [this script](https://github.com/ctb/2017-ucdavis-igg201b/blob/master/lab7/yeast.salmon.R) and take a look at the output:
+10. Run edgeR (in R) using [this script](https://github.com/ctb/2017-ucdavis-igg201b/blob/master/lab8/yeast.salmon.R) and take a look at the output:
 
-        Rscript --no-save ~/2017-ucdavis-igg201b/lab7/yeast.salmon.R
+        Rscript --no-save ~/2017-ucdavis-igg201b/lab8/yeast.salmon.R
 
-   This will produce two files, `yeast-edgeR-MA-plot.pdf` and
+   (Note that this script has been updated from lab 7 to add two new samples.)
+
+   This will produce two plots, `yeast-edgeR-MA-plot.pdf` and
    `yeast-edgeR-MDS.pdf`. You can view them by going to your Jupyter
    console and looking in the directory `yeast`.
+
+   The `yeast-edgeR.csv` file contains the fold expression & significance information in a spreadsheet.
+
+## Questions to ask/address
+
+1. What is the point or value of the [multidimensional scaling (MDS)](https://en.wikipedia.org/wiki/Multidimensional_scaling) plot?
+
+2. Why does the MA-plot have that shape?
+
+   Related: Why can't we just use fold expression to select the things we're interested in?
+
+   Related: How do we pick the FDR (false discovery rate) threshold?
+
+3. How do we know how many replicates (bio and/or technical) to do?
+
+   Related: what confounding factors are there for RNAseq analysis?
+
+   Related: what is our false positive/false negative rate?
+
+## More reading
+
+"How many biological replicates are needed in an RNA-seq experiment and which differential expression tool should you use?" [Schurch et al., 2016](http://rnajournal.cshlp.org/content/22/6/839).
+
+"Salmon provides accurate, fast, and bias-aware transcript expression estimates using dual-phase inference" [Patro et al., 2016](http://biorxiv.org/content/early/2016/08/30/021592).
+
+Also see [seqanswers](http://seqanswers.com/) and [biostars](https://www.biostars.org/).

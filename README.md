@@ -8,8 +8,9 @@ Contact info: [ctbrown@ucdavis.edu](mailto:ctbrown@ucdavis.edu)
 Labs 7-9 - RNAseq!
 ------------------
 
-* [Lab 8 instructions](lab8/README.md)
 * [Lab 7 instructions](lab7/README.md)
+* [Lab 8 instructions](lab8/README.md)
+* Lab 9: whatever Harriet wants to do :)
 
 [HW 3](hw3/README.md)
 

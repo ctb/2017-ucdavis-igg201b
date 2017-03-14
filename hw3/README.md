@@ -32,6 +32,8 @@ This time, please explicitly make it into a shell script that can be run; all th
 
 You will need to modify the `yeast.salmon.R` script to include the new data sets. Ideally, you would put that in your HW repo as well, and `git clone` your HW repo onto your amazon machine so that you have a record of everything you ran.
 
+You can find the `yeast-edgeR.csv` file from lab 8 [here, on github]((https://github.com/ctb/2017-ucdavis-igg201b/blob/master/lab8/yeast-edgeR.csv).
+
 ### A checklist:
 
 You'll need to:

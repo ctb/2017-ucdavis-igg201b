@@ -5,7 +5,7 @@ files <- c(
 "ERR458494.fastq.gz.quant.counts",
 "ERR458495.fastq.gz.quant.counts",
 "ERR458500.fastq.gz.quant.counts",
-"ERR458501.fastq.gz.quant.counts"
+"ERR458501.fastq.gz.quant.counts",
 "ERR458502.fastq.gz.quant.counts"
 )
 

@@ -15,9 +15,7 @@ With any sort of RNAseq project, you will at some point (depending on your quest
 
 ## Start up an instance, install stuff, and start playing around with the edgeR results from last week
 
-Today we are going to be relying on the
-
-0. Start up a new cloud instance (as usual; see [lab 5](../lab5/README.md)).
+1. Start up a new cloud instance (as usual; see [lab 5](../lab5/README.md)).
    (m4.large is  fine for this.)
 
 1. Connect to Terminal. Run `bash`.

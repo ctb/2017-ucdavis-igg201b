@@ -39,7 +39,7 @@ With any sort of RNAseq project, you will at some point (depending on your quest
 
 ## Identify the metabolic pathways in KEGG that are statistically over-represented
 
-0. Start R in your terminal:
+1. Start R in your terminal:
 
         R
 
@@ -70,7 +70,7 @@ With any sort of RNAseq project, you will at some point (depending on your quest
 
 ## Visualize the enriched pathways:
 
-0. Load the `pathview` library:
+1. Load the `pathview` library:
 
         library(pathview)
 

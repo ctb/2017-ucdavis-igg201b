@@ -59,7 +59,7 @@ With any sort of RNAseq project, you will at some point (depending on your quest
         up.genes <-subset(de.genes, logFC > 1)
         up.genes.names <-row.names(up.genes)
 
-4. Run `enrichKEGG` to identify the significantly enriched KEGG pathways in the set of genes that are increased in abundance in the WT condition:  
+4. Run `enrichKEGG` (which calculates a p-value for enrichment using a [hypergeometic distribution](https://en.wikipedia.org/wiki/Hypergeometric_distribution)) to identify the significantly enriched KEGG pathways in the set of genes that are increased in abundance in the WT condition:  
 
         kegg.up.enrichKEGG<-enrichKEGG(up.genes.names, organism='sce')
 

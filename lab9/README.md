@@ -22,7 +22,7 @@ With any sort of RNAseq project, you will at some point (depending on your quest
 
 2. Clone the course github repo:
 
-    git clone https://github.com/ctb/2017-ucdavis-igg201b.git
+         git clone https://github.com/ctb/2017-ucdavis-igg201b.git
 
 3. Install the R packages [pathview](https://bioconductor.org/packages/release/bioc/html/pathview.html) and [clusterProfiler](https://bioconductor.org/packages/release/bioc/vignettes/clusterProfiler/inst/doc/clusterProfiler.html#kegg-over-representation-test) as well as some annoying dependencies required for these to compile properly:
 
